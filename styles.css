@@ -203,8 +203,12 @@ h2 {
     min-height: 100vh;
 }
 
-/* Media Queries for Responsiveness */
+/* Make Room and Event images clickable */
+.photo-gallery img {
+    cursor: pointer;
+}
 
+/* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
