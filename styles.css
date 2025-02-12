@@ -268,3 +268,9 @@ h2 {
         font-size: 3.5rem;
     }
 }
+#rooms, #events {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    min-height: 100vh;
+}
