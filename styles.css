@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Basic styling for the body */
+/* Home */
 body {
     font-family: 'Roboto', sans-serif;
     font-size: large;
@@ -15,47 +15,190 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+/* ✅ Normal Font Sizes */
 p {
-    font-size: 2rem; font-weight: 500;
+    font-size: 1.8rem;
+    font-weight: 500;
 }
+
 h3 {
     font-size: 2rem;
+    font-weight: bold;
 }
+
 li {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
+
+/* ✅ Hotel Location (Pinakamalaki) */
 .hotel-location {
-    font-size: 3rem; font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
 }
+
+/* ✅ Responsive Fix */
+@media (max-width: 1024px) {
+    p {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    li {
+        font-size: 1.6rem;
+    }
+
+    .hotel-location {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    p {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    li {
+        font-size: 1.4rem;
+    }
+
+    .hotel-location {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    p {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    li {
+        font-size: 1.2rem;
+    }
+
+    .hotel-location {
+        font-size: 1.5rem;
+    }
+}
+.hotel-image {
+    max-width: 100%;  /* ✅ Para hindi lumagpas sa container */
+    height: auto;  /* ✅ Para hindi ma-distort */
+    display: block;  /* ✅ Para hindi magkaproblema sa spacing */
+    margin: 0 auto;  /* ✅ Para laging nasa gitna */
+    border-radius: 10px;  /* ✅ Para medyo rounded */
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 1024px) {
+    .hotel-image {
+        width: 80%;  /* ✅ Para hindi masyadong malaki sa tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .hotel-image {
+        width: 90%;  /* ✅ Mas maliit na konti para sa phones */
+    }
+}
+
+@media (max-width: 480px) {
+    .hotel-image {
+        width: 100%;  /* ✅ Full width sa small phones */
+    }
+}
+
 
 /* Header section */
 header {
     background-image: url('./headerbg.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    width: 100vw; /* Buong screen width */
+    height: 100vh; /* Buong screen height */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: background 1s ease-in-out;
     position: relative;
+    overflow: hidden; /* Para di maglapaw */
+    margin: 0; /* Alisin ang margin */
+    padding: 0; /* Alisin ang padding */
 }
 
-/* Centered content in the header */
+/* ✅ Fix sa Header Content */
 .header-content {
     text-align: center;
     color: white;
     padding: 20px;
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
+    left: 0;
+    right: 0;
+    width: 100%; /* Buong lapad */
+    max-width: none; /* Walang limit sa lapad */
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6); /* Para visible ang text */
     padding-top: 10px;
-    transition: opacity 1s ease-out;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-in-out;
 }
+
+/* ✅ Hide & Show Effect */
+.header-content.hidden {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+.header-content:hover {
+    opacity: 1 !important;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in-out;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 1024px) {
+    .header-content {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+
 
 /* Hotel name in Montserrat font */
 h1 {
@@ -114,15 +257,7 @@ nav ul li a:hover {
     transform: translateY(0);
 }
 
-/* Hover effect for header content */
-.header-content.hidden {
-    opacity: 0;
-}
 
-.header-content:hover {
-    opacity: 1 !important;
-    transition: opacity 0.5s ease-in;
-}
 
 /* Section header (Experience Comfort) */
 h2 {
@@ -231,5 +366,31 @@ h2 {
 
     .photo-gallery {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/*Contact us*/
+.map {
+    width: 100%;  /* ✅ Para di lumagpas sa container */
+    max-width: 600px;  /* ✅ Limit size sa malalaking screen */
+    margin: 0 auto;  /* ✅ Center sa page */
+}
+
+.map iframe {
+    width: 100%;  /* ✅ Para mag-adjust sa screen */
+    height: 300px;  /* ✅ Default height */
+    border-radius: 10px;  /* ✅ Para di mukhang dry */
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 768px) {
+    .map iframe {
+        height: 250px;  /* ✅ Medyo maliit sa tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .map iframe {
+        height: 200px;  /* ✅ Mas maliit sa phones */
     }
 }
